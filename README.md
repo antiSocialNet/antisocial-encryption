@@ -15,6 +15,7 @@ npm install antisocial-encryption
 
 ### Generate a key:
 
+```
 var cryptography = require('antisocial-encryption');
 
 cryptography.getKeyPair(function (err, keypair) {
@@ -33,6 +34,7 @@ cryptography.getKeyPair(function (err, keypair) {
 	// the public key to the peer you want to exchange
 	// encrypted messages with.
 });
+```
 
 
 ### Encrypt a message
@@ -50,6 +52,7 @@ The resulting message is an object containing the encrypted data, a signature an
 On the recipient side decrypt the message using the sender public key and the recipient private key.
 
 ```
+var cryptography = require('antisocial-encryption');
 var decrypted = cryptography.decrypt(publicKeyOfSender, privateKeyOfRecipient, message);
 ```
 
