@@ -1,13 +1,14 @@
 {
   "name": "antisocial-encryption",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Implement hybrid cryptosystem",
+  "keywords": ["cryptography", "antisocial"],
   "main": "index.js",
   "scripts": {
-    "test": "tests/test.js"
+    "test": "mocha tests/test.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "debug": "^3.1.0",
     "node-forge": "^0.7.5",
@@ -17,5 +18,9 @@
     "assert": "^1.4.1",
     "expect.js": "^0.3.1",
     "mocha": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antiSocialNet/antisocial-encryption.git"
   }
 }

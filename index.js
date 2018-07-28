@@ -77,9 +77,7 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	catch (err) {
 		var result = {
 			'valid': false,
-		}
-		if (!valid) {
-			result.invalidReason = 'decryption error ' + err;
+			'invalidReason': 'decryption error ' + err
 		}
 		return result;
 	}
