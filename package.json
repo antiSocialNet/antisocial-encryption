@@ -1,0 +1,21 @@
+{
+  "name": "antisocial-encryption",
+  "version": "1.0.0",
+  "description": "Implement hybrid cryptosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "tests/test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "node-forge": "^0.7.5",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.2.0"
+  }
+}
