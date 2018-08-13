@@ -122,8 +122,7 @@ module.exports.getKeyPair = function getKeyPair(cb) {
 		workers: 2
 	}, function (err, pair) {
 		if (err) {
-			var e = new VError(err, 'getKeyPair failed');
-			return cb(e);
+			return cb(err);
 		}
 		var keypair = {
 			public: forge.pki.publicKeyToPem(pair.publicKey, 72),
