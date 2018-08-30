@@ -5,7 +5,7 @@
 var crypto = require('crypto');
 var forge = require('node-forge');
 var uuid = require('uuid');
-var debug = require('debug')('encryption');
+var debug = require('debug')('antisocial-encryption');
 
 var algorithm = 'aes192';
 
