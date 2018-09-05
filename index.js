@@ -24,7 +24,7 @@ var algorithm = 'aes192';
 
 module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt, contentType) {
 
-	debug('encrypt %s', stringToEncrypt);
+	debug('encrypt %s', stringToEncrypt, contentType);
 
 	var password = uuid();
 
@@ -67,7 +67,7 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	var data = message.data;
 	var sig = message.sig;
 	var pass = message.pass;
-	var contentType = message.contentType;
+	var contentType = message.contentType ? contentType : 'application/json';
 
 	debug('decrypt data: %s pass: %j sig: %s', data, pass, sig);
 
