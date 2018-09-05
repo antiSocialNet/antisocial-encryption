@@ -67,9 +67,9 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	var data = message.data;
 	var sig = message.sig;
 	var pass = message.pass;
-	var contentType = message.contentType ? contentType : 'application/json';
+	var contentType = message.contentType ? message.contentType : 'application/json';
 
-	debug('decrypt data: %s pass: %j sig: %s', data, pass, sig);
+	debug('decrypt message: %j', message);
 
 	// decrypt password with private key
 	var decryptedPass
@@ -108,6 +108,9 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	else {
 		data.invalidReason = 'signing error';
 	}
+
+
+	console.log('result', result);
 
 	return result;
 };

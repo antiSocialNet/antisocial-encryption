@@ -1,6 +1,6 @@
 {
   "name": "antisocial-encryption",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Implement hybrid cryptosystem",
   "keywords": ["cryptography", "antisocial"],
   "main": "index.js",
