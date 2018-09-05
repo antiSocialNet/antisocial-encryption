@@ -22,7 +22,7 @@ var algorithm = 'aes192';
 	* @returns {Object} message - signed and encrypted data
  */
 
-module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt) {
+module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt, contentType) {
 
 	debug('encrypt %s', stringToEncrypt);
 
@@ -45,7 +45,8 @@ module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt
 	var message = {
 		'data': encrypted,
 		'pass': pass,
-		'sig': sig
+		'sig': sig,
+		'contentType': contentType ? contentType : 'application/json'
 	};
 
 	debug('encrypt message %j', message);
@@ -66,6 +67,7 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	var data = message.data;
 	var sig = message.sig;
 	var pass = message.pass;
+	var contentType = message.contentType;
 
 	debug('decrypt data: %s pass: %j sig: %s', data, pass, sig);
 
@@ -96,7 +98,8 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	debug('decrypt valid: %s decrypted: %s', decryptedPass, valid, decrypted);
 
 	var result = {
-		'valid': valid
+		'valid': valid,
+		'contentType': contentType
 	}
 
 	if (valid) {

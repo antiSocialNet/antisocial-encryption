@@ -47,6 +47,7 @@ describe('cryptography', function () {
 		expect(decrypted).to.be.an('object');
 		console.log('decrypted:', decrypted);
 		expect(decrypted.valid).to.equal(true);
+		expect(decrypted.contentType).to.equal('application/json');
 		expect(JSON.parse(decrypted.data).foo).to.equal('bar');
 		done();
 	});
