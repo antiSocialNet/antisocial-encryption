@@ -24,8 +24,6 @@ var algorithm = 'aes192';
 
 module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt, contentType) {
 
-	debug('encrypt %s', stringToEncrypt, contentType);
-
 	var password = uuid();
 
 	// sign message with private key
@@ -49,7 +47,7 @@ module.exports.encrypt = function encrypt(publicKey, privateKey, stringToEncrypt
 		'contentType': contentType ? contentType : 'application/json'
 	};
 
-	debug('encrypt message %j', message);
+	debug('encrypted message %j', message);
 
 	return (message);
 };
@@ -68,8 +66,6 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	var sig = message.sig;
 	var pass = message.pass;
 	var contentType = message.contentType ? message.contentType : 'application/json';
-
-	debug('decrypt message: %j', message);
 
 	// decrypt password with private key
 	var decryptedPass
@@ -95,8 +91,6 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 	verify.update(decrypted);
 	var valid = verify.verify(publicKey, sig, 'hex');
 
-	debug('decrypt valid: %s decrypted: %s', decryptedPass, valid, decrypted);
-
 	var result = {
 		'valid': valid,
 		'contentType': contentType
@@ -109,8 +103,7 @@ module.exports.decrypt = function decrypt(publicKey, privateKey, message) {
 		data.invalidReason = 'signing error';
 	}
 
-
-	console.log('result', result);
+	debug('decrypt result', result);
 
 	return result;
 };

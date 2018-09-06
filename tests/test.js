@@ -45,7 +45,6 @@ describe('cryptography', function () {
 	it('peer 2 should be able to decrypt data from peer 1', function (done) {
 		var decrypted = cryptography.decrypt(pair1.public, pair2.private, message);
 		expect(decrypted).to.be.an('object');
-		console.log('decrypted:', decrypted);
 		expect(decrypted.valid).to.equal(true);
 		expect(decrypted.contentType).to.equal('application/json');
 		expect(JSON.parse(decrypted.data).foo).to.equal('bar');
